@@ -70,3 +70,10 @@
 .switch-btn:checked:before {
   left: 25px;
 }
+
+/** dark theme */
+.--dark-theme {
+  background-color: #000;
+  color: white;
+  transition: 500ms;
+}
