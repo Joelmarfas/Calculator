@@ -1,3 +1,41 @@
-p {
-    color: aqua;
+/* * {
+    outline: 1px dotted red;
+} */
+
+.main-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.buttons-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.output {
+    height: 50px;
+    padding: 1rem 0;
+}
+
+.output input {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.dots {
+    display: flex;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    grid-auto-flow: row;
+}
+
+.equal-button {
+    grid-column: 3 / 5;
 }
