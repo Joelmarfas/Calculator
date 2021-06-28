@@ -14,6 +14,7 @@
 }
 
 .output {
+    display: flex;
     height: 50px;
     padding: 1rem 0;
     border: 1px solid red;
