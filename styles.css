@@ -16,9 +16,10 @@
 .output {
     height: 50px;
     padding: 1rem 0;
+    border: 1px solid red;
 }
 
-.output input {
+.output p {
     height: 100%;
     width: 100%;
     padding: 0;
