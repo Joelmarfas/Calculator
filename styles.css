@@ -73,3 +73,7 @@
   color: white;
   transition: 500ms;
 }
+
+.--is-depressed {
+  color: red;
+}

@@ -12,7 +12,8 @@ function operations (event){
   let action = key.dataset.operation
   let value = key.textContent
   let outputNum = output.textContent
-  // let numbers = []
+
+  btns.forEach(item => item.classList.remove('--is-depressed'))
 
   if (!action) {
     console.log(outputNum);
@@ -23,11 +24,6 @@ function operations (event){
     }
 
     console.log('es un numero');
-    // numbers.push(value)
-    // console.log(numbers)
-    // output.textContent += numbers
-    // console.log(output);
-    // return numbers
   }
 
   if (action === 'reset') {
@@ -41,17 +37,21 @@ function operations (event){
     action === 'divide' ||
     action === 'module'
     ) {
+      key.classList.add('--is-depressed')
+      key.dataset.previousKeyType = 'operator'
+      output.textContent = outputNum + value
       console.log('es un simbolo de operaciones');
     }
+
+
 
     if(action === 'decimal') {
       if(!outputNum.includes('.')) {
         output.textContent = outputNum + '.'
       }
-      console.log(outputNum)
     }
     if(action === 'reset' ) { console.log('resetea') }
-    if(action === 'calculate') { console.log('haz el calculo')}
+    if(action === 'calculate') { console.log(value)}
     if(action === 'int') { console.log('negativo');}
 }
 
