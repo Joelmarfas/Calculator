@@ -14,10 +14,11 @@ function operations (event){
   let outputNum = output.textContent
 
   btns.forEach(item => item.classList.remove('--is-depressed'))
+  let previousKeyType = key.dataset.previousKeyType
 
   if (!action) {
     console.log(outputNum);
-    if(outputNum === '0') {
+    if(outputNum === '0' || previousKeyType === 'operator') {
       output.textContent = value
     } else {
       output.textContent = outputNum + value
