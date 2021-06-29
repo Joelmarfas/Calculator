@@ -37,16 +37,15 @@ function operations (event){
     ) {
       key.classList.add('--is-depressed')
       key.dataset.firstValue = outputNum
-      key.dataset.operator = action
+      key.dataset.operator = value
 
+      console.log(key.dataset.operator);
 
       key.dataset.previousKeyType = 'operator'
       
       if(key.dataset.previousKeyType === 'operator') {
         output.textContent = ''
       }
-
-      console.log(key.dataset.firstValue);
     }
 
     if(action === 'decimal') {
@@ -60,14 +59,20 @@ function operations (event){
       let operator = key.dataset.operator
       let secondValue = outputNum
 
-      output.textContent = calculate(firstValue, operator, secondValue)
+      console.log(operator);
+
+      output.textContent = calculate(firstValue, secondValue)
     }
 
-    if(action === 'int') { console.log('negativo');}
+    if(action === 'int') { console.log('negativo')}
 }
 
-const calculate = (value1, operator, value2) => {
-  return 'calculating...'
+function calculate(value1, value2) {
+  let result = ''
+
+  result= parseFloat(value1) + parseFloat(value2)
+
+  return result
 }
 
 function toggleTheme () {
