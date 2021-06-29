@@ -10,21 +10,24 @@ function operations(event) {
   let action = key.dataset.operation
   let value = key.textContent
   let outputNum = output.textContent
-  let firstValue = 0
+  let firstValue = []
+
   let secondValue = []
 
   if(!action) {
     if(outputNum === '0') {
       output.textContent = value
-    } else if (outputNum.length <= 6) {
-      firstValue = outputNum + value
-      output.textContent = firstValue
+    } else if (outputNum.length <= 5) {
+      output.textContent = outputNum + value
+      firstValue.push(parseInt(output.textContent))
     }
-    console.log(typeof Number(firstValue))
+
+    console.log(firstValue)
+
     return firstValue
   }
 
-  if(action === '+') addOperation(Number(firstValue), Number(firstValue))
+  if(action === '+') addOperation(firstValue[0], firstValue[0])
   // if(action === '-') substractOperation(a, b)
   // if(action === '*') multiplyOperation(a, b)
   // if(action === '/') divideOperation(a, b)
@@ -32,11 +35,15 @@ function operations(event) {
 
 }
 
-const addOperation = (v1, v2) => console.log(eval(v1 + v2))
-const substractOperation = (v1, v2) => console.log('-')
-const multiplyOperation = (v1, v2) => console.log('*')
-const divideOperation = (v1, v2) => console.log('/')
-const moduleOperation = (v1, v2) => console.log('%')
+function addOperation(v1, v2) {
+  console.log(v1 + v2)
+}
+
+// const addOperation = (v1, v2) => console.log(v1 + v2)
+// const substractOperation = (v1, v2) => console.log('-')
+// const multiplyOperation = (v1, v2) => console.log('*')
+// const divideOperation = (v1, v2) => console.log('/')
+// const moduleOperation = (v1, v2) => console.log('%')
 
 function toggleTheme () {
   let main = document.querySelector('.calculator')
