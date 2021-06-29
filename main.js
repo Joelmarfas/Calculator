@@ -1,4 +1,6 @@
-var btns = document.querySelectorAll(".btn");
+let output = document.querySelector(".calculator__output")
+
+var btns = document.querySelectorAll(".btn")
 btns.forEach(btn => btn.addEventListener("click", operations))
 
 let switchToggle = document.querySelector('.button-switch')
@@ -8,12 +10,18 @@ function operations (event){
   event.preventDefault()
   let key = event.target
   let action = key.dataset.operation
-  // let value = key.textContent
+  let value = key.textContent
+  let outputNum = output.textContent
   // let numbers = []
-  // let output = document.querySelector(".calculator__output")
-
 
   if (!action) {
+    console.log(outputNum);
+    if(outputNum === '0') {
+      output.textContent = value
+    } else {
+      output.textContent = outputNum + value
+    }
+
     console.log('es un numero');
     // numbers.push(value)
     // console.log(numbers)
@@ -22,9 +30,9 @@ function operations (event){
     // return numbers
   }
 
-  // if (action === 'reset') {
-  //   output.textContent = 0
-  // }
+  if (action === 'reset') {
+    output.textContent = 0
+  }
 
   if(
     action === 'add' ||
@@ -36,7 +44,12 @@ function operations (event){
       console.log('es un simbolo de operaciones');
     }
 
-    if(action === 'decimal') { console.log('es decimal') }
+    if(action === 'decimal') {
+      if(!outputNum.includes('.')) {
+        output.textContent = outputNum + '.'
+      }
+      console.log(outputNum)
+    }
     if(action === 'reset' ) { console.log('resetea') }
     if(action === 'calculate') { console.log('haz el calculo')}
     if(action === 'int') { console.log('negativo');}
