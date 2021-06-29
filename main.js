@@ -10,21 +10,18 @@ function operations (event){
   event.preventDefault()
   let key = event.target
   let action = key.dataset.operation
-  let value = key.textContent
+  let value = key.textContent //keyContent
   let outputNum = output.textContent
 
   btns.forEach(item => item.classList.remove('--is-depressed'))
   let previousKeyType = key.dataset.previousKeyType
 
   if (!action) {
-    console.log(outputNum);
     if(outputNum === '0' || previousKeyType === 'operator') {
       output.textContent = value
     } else {
       output.textContent = outputNum + value
     }
-
-    console.log('es un numero');
   }
 
   if (action === 'reset') {
@@ -39,21 +36,38 @@ function operations (event){
     action === 'module'
     ) {
       key.classList.add('--is-depressed')
+      key.dataset.firstValue = outputNum
+      key.dataset.operator = action
+
+
       key.dataset.previousKeyType = 'operator'
-      output.textContent = outputNum + value
-      console.log('es un simbolo de operaciones');
+      
+      if(key.dataset.previousKeyType === 'operator') {
+        output.textContent = ''
+      }
+
+      console.log(key.dataset.firstValue);
     }
-
-
 
     if(action === 'decimal') {
       if(!outputNum.includes('.')) {
         output.textContent = outputNum + '.'
       }
     }
-    if(action === 'reset' ) { console.log('resetea') }
-    if(action === 'calculate') { console.log(value)}
+
+    if(action === 'calculate') {
+      let firstValue = key.dataset.firstValue
+      let operator = key.dataset.operator
+      let secondValue = outputNum
+
+      output.textContent = calculate(firstValue, operator, secondValue)
+    }
+
     if(action === 'int') { console.log('negativo');}
+}
+
+const calculate = (value1, operator, value2) => {
+  return 'calculating...'
 }
 
 function toggleTheme () {
