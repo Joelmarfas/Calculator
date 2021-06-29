@@ -1,26 +1,31 @@
 var btns = document.querySelectorAll(".btn");
 btns.forEach(btn => btn.addEventListener("click", operations))
 
-let switchToggle = document.querySelector('.switch-btn')
+let switchToggle = document.querySelector('.button-switch')
 switchToggle.addEventListener('click', toggleTheme)
 
 function operations (event){
   event.preventDefault()
-  let value = event.target.value
-  let output = document.querySelector(".output")
-  let span = document.createElement("span")
+  let key = event.target
+  let action = key.dataset.action
+  let value = key.textContent
+  let numbers = []
+  let output = document.querySelector(".calculator__output")
 
-  span.textContent = value
-  output.append(span)
+  if (!action) {
+    numbers.push(value)
+    console.log(numbers)
+    output.textContent += numbers
+    console.log(output);
+    return numbers
+  }
 
-  if (value === 'reset') {
-    while (output.firstChild) {
-      output.removeChild(output.firstChild)
-    }
+  if (action === 'reset') {
+    output.textContent = 0
   }
 }
 
 function toggleTheme () {
-  let main = document.querySelector('.main-wrapper')
+  let main = document.querySelector('.calculator')
   main.classList.toggle('--dark-theme')
 }
