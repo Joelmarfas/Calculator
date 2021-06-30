@@ -27,7 +27,7 @@ function operations(event) {
     return firstValue
   }
 
-  if(action === '+') addOperation(firstValue[0], firstValue[0])
+  if(action === 'add') addOperation(firstValue[0], firstValue[0])
   // if(action === '-') substractOperation(a, b)
   // if(action === '*') multiplyOperation(a, b)
   // if(action === '/') divideOperation(a, b)
