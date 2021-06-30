@@ -1,51 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=p, initial-scale=1.0">
-  <title>Calculator</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="main.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer> </script>
 </head>
 <body>
-  <h1>Calculator</h1>
-  <form class="main-wrapper">
-    <!-- buttons header -->
-    <section class="buttons-header">
-      <ul class="dots">
-        <li>dot</li>
-        <li>dot</li>
-        <li>dot</li>
-      </ul>
-      <input type="checkbox" class="switch-btn"/>
-    </section>
-    <!-- output -->
-    <section class="output">
-    
-    </section>
-    <!-- main -->
-    <main class="grid-wrapper">
-      <button id="C" class="btn" value="reset">C</button>
-      <button id="+-" class="btn" value="+-">+-</button>
-      <button id="%" class="btn" value="%">%</button>
-      <button id="/" class="btn" value="/">/</button>
-      <button id="7" class="btn" value="7">7</button>
-      <button id="8" class="btn" value="8">8</button>
-      <button id="9" class="btn" value="9">9</button>
-      <button id="x" class="btn" value="x">x</button>
-      <button id="4" class="btn" value="4">4</button>
-      <button id="5" class="btn" value="5">5</button>
-      <button id="6" class="btn" value="6">6</button>
-      <button id="-" class="btn" value="-">-</button>
-      <button id="1" class="btn" value="1">1</button>
-      <button id="2" class="btn" value="2">2</button>
-      <button id="3" class="btn" value="3">3</button>
-      <button id="+" class="btn" value="+">+</button>
-      <button id="0" class="btn" value="0">0</button>
-      <button id="." class="btn" value=".">.</button>
-      <button id="=" class="btn equal-button" value="=">=</button>
-    </main>
-  </form>
+    <input type="checkbox" class="button-switch" />
+    <div class="calculator-grid">
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+        <button data-all-clear>C</button>
+        <button data-operation>+/-</button>
+        <button data-operation>%</button>
+        <button data-operation>÷</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-operation>*</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation>-</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation>+</button>
+        <button data-number>0</button>
+        <button data-number>.</button>
+        <button data-equals class="span-two">=</button>
+    </div>
 </body>
 </html>
