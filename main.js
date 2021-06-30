@@ -12,6 +12,8 @@ function operations (event){
   let action = key.dataset.operation
   let value = key.textContent //keyContent
   let outputNum = output.textContent
+  let firstValue = 0
+
 
   btns.forEach(item => item.classList.remove('--is-depressed'))
   let previousKeyType = key.dataset.previousKeyType
@@ -55,11 +57,12 @@ function operations (event){
     }
 
     if(action === 'calculate') {
-      let firstValue = key.dataset.firstValue
+      firstValue = Number(key.dataset.firstValue)
       let operator = key.dataset.operator
       let secondValue = outputNum
 
       console.log(operator);
+      console.log(firstValue)
 
       output.textContent = calculate(firstValue, secondValue)
     }
