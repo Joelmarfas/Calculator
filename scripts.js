@@ -124,7 +124,6 @@ class Calculator {
   let switchButton = document.querySelector('.button-switch')
   switchButton.addEventListener('click', toggleSwitcher)
   function toggleSwitcher(){
-      console.log('holi')
       let main = document.querySelector('.calculator-grid')
       main.classList.toggle('darktheme')
   }
