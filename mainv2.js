@@ -1,5 +1,8 @@
 let buttons = document.querySelectorAll('button')
 let output = document.querySelector('.calculator__output')
+let operators = document.querySelectorAll('[data-operation]')
+operators.forEach( operator => operator.addEventListener('click', addOperation))
+
 
 let switchToggle = document.querySelector('.button-switch')
 switchToggle.addEventListener('click', toggleTheme)
@@ -12,10 +15,10 @@ function getNumbers(event) {
   let action = key.dataset.operation
   let value = key.textContent
 
-  if(!action) {
+  if(!event.target.dataset.operation) {
     if(output.textContent === '0') {
       output.textContent = value
-    } else if (output.textContent.length <=5) {
+    } else if (output.textContent.length <=8) {
       output.textContent += value
     }
   }
@@ -23,6 +26,14 @@ function getNumbers(event) {
   return myNumber
 }
 
+function addOperation(e) {
+  let result = ''
+  if(output.textContent.length <=6) {
+      output.textContent += e.target.textContent
+  }
+  result = output.textContent
+  console.log(result);
+}
 
 function toggleTheme () {
   let main = document.querySelector('.calculator')
