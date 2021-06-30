@@ -26,6 +26,7 @@ body {
     font-size: 2rem;
     border: 1px solid white;
     background-color: rgba(255, 255, 255, .75); /*only 75% opaque and white*/
+    transition: 200ms;
 }
 
 /* we want to add hover to the buttons with 90% opaque*/
@@ -108,4 +109,5 @@ body {
     .darktheme.calculator-grid > button {
         background-color: rgba(0, 0, 0, .75);
         color: white;
+        transition: 200ms;
     }
