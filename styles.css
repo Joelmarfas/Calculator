@@ -16,6 +16,7 @@ h1 {
   border-radius: 10px;
   background-color: #fff;
   border: 1px solid #e0e9e5;
+  transition: 200ms;
 }
 
 .calculator__header {
